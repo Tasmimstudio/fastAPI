@@ -1,8 +1,6 @@
 from fastapi import APIRouter
 from app.schemas.person import PersonCreate, PersonResponse
-from app import crud
 from app.crud import person as crud_person
-
 
 router = APIRouter(prefix="/persons", tags=["Persons"])
 
@@ -25,3 +23,8 @@ def update_person(name: str, data: PersonCreate):
 @router.delete("/{name}")
 def delete_person(name: str):
     return crud_person.delete_person(name)
+
+# 🔹 Add friendship
+@router.post("/{name}/friends/{friend_name}")
+def add_friend(name: str, friend_name: str):
+    return crud_person.add_friend(name, friend_name)
