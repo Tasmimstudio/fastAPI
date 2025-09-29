@@ -15,7 +15,7 @@ class PersonResponse(BaseModel):
     @classmethod
     def from_orm(cls, person):
         return cls(
-            id=person.element_id_property,
+            element_id_property=person.element_id_property,
             name=person.name,
             age=person.age,
             friends=[f.name for f in person.friends]  # resolve friend names
