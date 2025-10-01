@@ -1,6 +1,7 @@
 from app.models.person import Person
 from app.schemas.person import PersonCreate, PersonResponse
 
+
 def create_person(data: PersonCreate):
     person = Person(name=data.name, age=data.age).save()
     return PersonResponse.from_orm(person)

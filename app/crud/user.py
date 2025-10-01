@@ -1,6 +1,14 @@
+import sys
+import os
+
 from app.models.user import User
 from app.schemas.user import UserCreate, UserUpdate, UserResponse
 from fastapi import HTTPException
+
+
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 
 def create_user(data: UserCreate):
     try:

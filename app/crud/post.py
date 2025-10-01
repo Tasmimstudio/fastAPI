@@ -2,6 +2,7 @@ from app.models.post import Post
 from app.models.user import User
 from app.schemas.post import PostCreate, PostUpdate, PostResponse
 from fastapi import HTTPException
+from neomodel import db
 
 def create_post(username: str, data: PostCreate):
     try:

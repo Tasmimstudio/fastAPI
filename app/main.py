@@ -1,11 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.config import config
 from neomodel import db
 from neo4j.exceptions import AuthError, ServiceUnavailable
-
-# Import all routers
+# Use absolute imports for clarity
+from app import config
 from app.routers import person, user, post, comment, like
+
+
 
 app = FastAPI(
     title="Social Media API with Neo4j",
